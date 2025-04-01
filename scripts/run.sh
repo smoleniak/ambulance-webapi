@@ -23,6 +23,9 @@ case "$command" in
         mongo up --detach
         go run "$ProjectRoot/cmd/ambulance-api-service"
         ;;
+    "test")
+        go test -v ./...
+        ;;
     "openapi")
         docker run --rm -ti -v "$ProjectRoot":/local openapitools/openapi-generator-cli generate -c /local/scripts/generator-cfg.yaml
         ;;
