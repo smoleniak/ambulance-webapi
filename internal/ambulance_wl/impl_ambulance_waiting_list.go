@@ -166,6 +166,10 @@ func (o implAmbulanceWaitingListAPI) UpdateWaitingListEntry(c *gin.Context) {
 			}, http.StatusNotFound
 		}
 
+		if entry.Name != "" {
+			ambulance.WaitingList[entryIndx].Name = entry.Name
+		}
+
 		if entry.PatientId != "" {
 			ambulance.WaitingList[entryIndx].PatientId = entry.PatientId
 		}
